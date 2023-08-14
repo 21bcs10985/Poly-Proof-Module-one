@@ -34,19 +34,31 @@ Step 1: Open the VS code and then clone the given repository
 
 Step 2: Next to import dependencies run command
 
-    npm i
+    npm install @openzepplin/contracts
 
-Step 3: Now go to upload your NFTs to layers folder on vs code and also upload the folder on pinata cloud also and copy the CID from there and then go to src folder and then in config.js provide that CID in baseURI. 
+    npm install --save -dev hardhat @nomiclabs/hardhat-ethers ethers
 
-Step 4: Our next step to Update the URI for all the json file of all NFTs
+Step 3: Now our next task is to compile or ERC721 contract this will  generate a cache and artifact file to our workplace.
 
-    node utils/update_info.js
+    npx hardhat compile
 
-Step 5: Now go to contract folder and then copy the solidity file and then go to Remix IDE and then compile it ther and then deploy it one goerli network and then copy the address at which contract is deployed. 
+Step 4: Our next step to deploy the contract on goerli network 
 
-Step 6: Now goto polyscan and then map that address to our current wallet.
+    npx hardhat run deploy.js --network goerli
+    
+Step 5: Now go to polygon mapper and then map the contract address to a Mumbai network. 
 
-Step 7: On remix we got all the function mint, transfer and balance of. And we can also verify that also. 
+Step 6: our next task is to mint the token on polgon network .
+    
+    npx hardhat run Mint.js --network goerli
+
+Step 7:  our next task is to approve the token on polgon network .
+    
+    npx hardhat run approveDeploy.js --network goerli 
+
+Step 8:  our next task is to check the balance of the wallet.
+    
+    npx hardhat run approveDeploy.js --network goerli 
 
 
 
